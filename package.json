@@ -1,7 +1,7 @@
 {
-  "name": "TeamAwesome",
+  "name": "tech-friends",
   "version": "1.0.0",
-  "description": "A new take on an old classic.",
+  "description": "",
   "main": "server/server.js",
   "scripts": {
     "start": "node server --ignore client",
