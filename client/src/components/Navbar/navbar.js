@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Auth from "../../utils/auth";
-import './navbar.css';
+import '../Navbar/navbar.css';
 
 function Navbar() {
   const [searchQuery, setSearchQuery] = useState('');
