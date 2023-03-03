@@ -2,30 +2,19 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
-
+import { Button, Checkbox, Form, Input } from 'antd';
 import Auth from "../utils/auth";
 
 const Login = (props) => {
-  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [form] = Form.useForm();
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
-  // update state based on form input changes
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
-
   // submit form
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    console.log(formState);
+  const handleFormSubmit = async (values) => {
+    console.log(values);
     try {
       const { data } = await login({
-        variables: { ...formState },
+        variables: { ...values },
       });
 
       Auth.login(data.login.token);
@@ -33,11 +22,8 @@ const Login = (props) => {
       console.error(e);
     }
 
-    // clear form values
-    setFormState({
-      email: "",
-      password: "",
-    });
+    // reset form
+    form.resetFields();
   };
 
   return (
@@ -52,25 +38,73 @@ const Login = (props) => {
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  placeholder="Your email"
+              <Form
+                form={form}
+                name="basic"
+                labelCol={{
+                  span: 8,
+                }}
+                wrapperCol={{
+                  span: 16,
+                }}
+                style={{
+                  maxWidth: 600,
+                }}
+                initialValues={{
+                  remember: true,
+                }}
+                onFinish={handleFormSubmit}
+                autoComplete="off"
+              >
+                <Form.Item
+                  label="Email"
                   name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  placeholder="******"
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input a valid email!',
+                      type: 'email'
+                    },
+                  ]}
+                >
+                  <Input />
+                </Form.Item>
+
+                <Form.Item
+                  label="Password"
                   name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <button style={{ cursor: "pointer" }} type="submit">
-                  Submit
-                </button>
-              </form>
+                  rules={[
+                    {
+                      required: true,
+                      message: 'Please input your password!',
+                    },
+                  ]}
+                >
+                  <Input.Password />
+                </Form.Item>
+
+                <Form.Item
+                  name="remember"
+                  valuePropName="checked"
+                  wrapperCol={{
+                    offset: 8,
+                    span: 16,
+                  }}
+                >
+                  <Checkbox>Remember me</Checkbox>
+                </Form.Item>
+
+                <Form.Item
+                  wrapperCol={{
+                    offset: 8,
+                    span: 16,
+                  }}
+                >
+                  <Button type="primary" htmlType="submit">
+                    Submit
+                  </Button>
+                </Form.Item>
+              </Form>
             )}
 
             {error && <div>{error.message}</div>}
@@ -82,3 +116,4 @@ const Login = (props) => {
 };
 
 export default Login;
+
