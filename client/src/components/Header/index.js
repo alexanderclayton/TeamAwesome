@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Auth from "../../utils/auth";
+import Navbar from "../Navbar/navbar.js"
 
 const Header = () => {
   const logout = (event) => {
@@ -12,7 +13,8 @@ const Header = () => {
   return (
     <header>
       <div>
-        <Link to="/">Home</Link>
+        <Navbar/>
+        {/* <Link to="/">Home</Link>
 
         <div>
           {Auth.loggedIn() ? (
@@ -22,8 +24,8 @@ const Header = () => {
               <Link to="/login">Login</Link>
               <Link to="/signup">Signup</Link>
             </>
-          )}
-        </div>
+          )} */}
+        {/* </div> */}
       </div>
     </header>
   );

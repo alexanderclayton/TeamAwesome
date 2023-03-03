@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import "./navbar.css"
+import Auth from "../../utils/auth";
+import './navbar.css';
 
 function Navbar() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isDropdownActive, setIsDropdownActive] = useState(false);
+
 
   const handleSearch = (event) => {
     setSearchQuery(event.target.value);
@@ -13,11 +15,19 @@ function Navbar() {
     setIsDropdownActive(!isDropdownActive);
   };
 
+  const logout = () => {
+    Auth.logout();
+  };
+
   return (
     <nav>
       <ul className="navbar">
         <li><a href="#">My Profile</a></li>
-        <li><a href="#">Logout</a></li>
+        {Auth.loggedIn() ? (
+          <li><button onClick={logout}>Logout</button></li>
+        ) : (
+          <li><a href="#">Login</a></li>
+        )}
         <li>
           <form>
             <input 
