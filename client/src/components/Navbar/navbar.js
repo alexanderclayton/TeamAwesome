@@ -22,11 +22,11 @@ function Navbar() {
   return (
     <nav>
       <ul className="navbar">
-        <li><a href="#">My Profile</a></li>
+        <li><a href='/Home'>My Profile</a></li>
         {Auth.loggedIn() ? (
           <li><button onClick={logout}>Logout</button></li>
         ) : (
-          <li><a href="#">Login</a></li>
+          <li><a href="/login">Login</a></li>
         )}
         <li>
           <form>
