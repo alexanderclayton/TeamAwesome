@@ -49,7 +49,7 @@ function Navbar() {
           <div 
             className={`dropdown ${isDropdownActive ? 'active' : ''}`}
           >
-            <a href="#">Add a new photo</a>
+            <a href="../client/src/pages/PhotoAdd.js">Add a new photo</a>
           </div>
         </li>
       </ul>
