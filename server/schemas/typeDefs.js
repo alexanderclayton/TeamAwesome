@@ -6,6 +6,7 @@ const typeDefs = gql`
     name: String
     email: String
     password: String
+    images: [String]
   }
 
   type Auth {
@@ -22,6 +23,7 @@ const typeDefs = gql`
     addUser(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     removeUser: User
+    addImage(downloadURL: String!): User
   }
 `;
 

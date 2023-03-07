@@ -23,3 +23,13 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const ADD_IMAGE = gql`
+  mutation addImage($downloadURL: String! ) {
+    addImage(downloadURL: $downloadURL) {
+      _id
+      name
+      images
+    }
+  }
+`;

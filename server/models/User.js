@@ -1,6 +1,5 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
-const pictureSchema = require ('./image.js')
 const userSchema = new Schema({
   name: {
     type: String,
@@ -19,7 +18,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  images:[pictureSchema]
+  images:[String]
 });
 
 // set up pre-save middleware to create password
