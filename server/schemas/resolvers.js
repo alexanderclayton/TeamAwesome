@@ -50,6 +50,16 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+    addImage: async (parent, { downloadURL }, context) => {
+      if (context && context.user) {
+        return User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { images: downloadURL } },
+          { new: true }
+        );
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    }
   },
 };
 
