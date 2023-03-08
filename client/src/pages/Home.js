@@ -1,6 +1,6 @@
 import { Avatar } from 'antd';
 import { useState } from 'react';
-
+import '../pages/Home.css';
 const Home = () => {
   const [imageURL, setImageURL] = useState('');
   const [name, setName] = useState('John Doe');
