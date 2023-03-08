@@ -26,5 +26,5 @@ p {
     border-color: var(--third-color);
     border-radius: 0.5ch;
     height: max-content;
-    width: fit-content;
+    width: max-content;
 }
