@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_IMAGES } from '../utils/queries';
 import Draggable from 'react-draggable';
+import '../pages/Home.css';
 
 const Home = () => {
   const [imageURL, setImageURL] = useState('');
