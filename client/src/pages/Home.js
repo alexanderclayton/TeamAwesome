@@ -1,5 +1,8 @@
 import { Avatar } from 'antd';
 import { useState } from 'react';
+import { useQuery } from '@apollo/client';
+import { GET_IMAGES } from '../utils/queries';
+import Draggable from 'react-draggable';
 
 const Home = () => {
   const [imageURL, setImageURL] = useState('');
@@ -27,6 +30,11 @@ const Home = () => {
     // Reset the name, username, and bio to the original values.
   };
 
+  const { loading, error, data } = useQuery(GET_IMAGES);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error</p>
+
   return (
     <main>
       <div style={{ display: isEditing ? 'none' : 'block' }}>
@@ -47,6 +55,13 @@ const Home = () => {
         <textarea value={bio} onChange={(e) => setBio(e.target.value)} />
         <button onClick={handleSave}>Save</button>
         <button onClick={handleCancel}>Cancel</button>
+      </div>
+      <div>
+        {data.getImages.map((imageUrl) => (
+          <Draggable>
+            <img src={imageUrl} alt="user uploaded photo" />
+          </Draggable>
+        ))}
       </div>
     </main>
   );

@@ -19,3 +19,9 @@ export const QUERY_SINGLE_USER = gql`
     }
   }
 `;
+
+export const GET_IMAGES = gql`
+  query GetImages {
+    getImages
+  }
+`;
