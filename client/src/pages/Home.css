@@ -1,0 +1,30 @@
+:root {
+    --first-color: #EAF6FF;
+    --second-color: #232528;
+    --third-color: #2A2A72;
+    --fourth-color: #009FFD;
+    --fifth-color: #FFA400;
+}
+
+div {
+color: var(--second-color);
+}
+
+h2 {
+    border-style: solid;
+    border-color: var(--third-color);
+    border-radius: 0.5ch;
+    height:max-content;
+    width: max-content;
+    color: #232528;
+    text-shadow: 2px 2px var(--fifth-color);
+}
+
+p {
+    color: var(--second-color);
+    border-style: solid;
+    border-color: var(--third-color);
+    border-radius: 0.5ch;
+    height: max-content;
+    width: fit-content;
+}
