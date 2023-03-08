@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Auth from "../../utils/auth";
 import '../Navbar/navbar.css';
+import { Link, useLocation } from 'react-router-dom';
 
 function Navbar() {
+  const location = useLocation();
   const [searchQuery, setSearchQuery] = useState('');
   const [isDropdownActive, setIsDropdownActive] = useState(false);
 
@@ -26,7 +28,7 @@ function Navbar() {
         {Auth.loggedIn() ? (
           <li><button onClick={logout}>Logout</button></li>
         ) : (
-          <li><a href="/login">Login</a></li>
+          <li>{location.pathname === '/signup' ? <Link to="/login">Login</Link> : <Link to="/signup">Signup</Link>}</li>
         )}
         <li>
           <form>
