@@ -17,6 +17,7 @@ const Login = (props) => {
       });
 
       Auth.login(data.login.token);
+      window.location.href = "/home";
     } catch (e) {
       console.error(e);
     }

@@ -1,44 +1,43 @@
-import React, { useState } from 'react';
+import React, {useState } from 'react'
 import Auth from "../../utils/auth";
 import '../Navbar/navbar.css';
+import { Link, useLocation } from 'react-router-dom';
 
 function Navbar() {
-  const [searchQuery, setSearchQuery] = useState('');
   const [isDropdownActive, setIsDropdownActive] = useState(false);
-
-
-  const handleSearch = (event) => {
-    setSearchQuery(event.target.value);
-  };
 
   const handleDropdownButtonClick = () => {
     setIsDropdownActive(!isDropdownActive);
   };
 
+  const handleLoginLogoutClick = () => {
+    if (Auth.loggedIn()) {
+      logout();
+    } else {
+      // Redirect to the login page
+      window.location.href = '/login';
+    }
+  };
+
   const logout = () => {
     Auth.logout();
+    // Reload the page to clear any cached data
+    window.location.reload();
   };
 
   return (
     <nav>
       <ul className="navbar">
         <li><a href='/Home'>My Profile</a></li>
-        {Auth.loggedIn() ? (
-          <li><button onClick={logout}>Logout</button></li>
-        ) : (
-          <li><a href="/login">Login</a></li>
+        {Auth.loggedIn() && (
+          <li><button onClick={handleLoginLogoutClick}>Logout</button></li>
         )}
-        <li>
-          <form>
-            <input 
-              type="text" 
-              placeholder="Search users..." 
-              value={searchQuery} 
-              onChange={handleSearch} 
-            />
-            <button type="submit">Search</button>
-          </form>
-        </li>
+        {Auth.loggedIn() || (
+          <li><Link to="/signup">Signup</Link></li>
+        )}
+        {Auth.loggedIn() ? null : (
+          <li><Link to="/login">Login</Link></li>
+        )}
         <li>
           <button 
             className="dropdown-button"

@@ -6,7 +6,7 @@ const typeDefs = gql`
     name: String
     email: String
     password: String
-    images: [String]
+    images: [String]!
   }
 
   type Auth {
@@ -17,6 +17,7 @@ const typeDefs = gql`
   type Query {
     users: [User]!
     user(userId: ID!): User
+    getImages: [String]!
   }
 
   type Mutation {

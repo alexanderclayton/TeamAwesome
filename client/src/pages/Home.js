@@ -2,6 +2,11 @@ import { Avatar } from 'antd';
 import { useState } from 'react';
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
+import { useQuery } from '@apollo/client';
+import { GET_IMAGES } from '../utils/queries';
+import Draggable from 'react-draggable';
+import { Resizable, ResizableBox } from 'react-resizable';
+import '../pages/Home.css';
 
 const Home = () => {
   const [imageURL, setImageURL] = useState('');
@@ -35,6 +40,11 @@ const Home = () => {
       });
     });
   };
+  
+  const { loading, error, data } = useQuery(GET_IMAGES);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error</p>
 
   return (
     <main id = 'profile'>
@@ -58,6 +68,19 @@ const Home = () => {
         <button onClick={handleSave}>Save</button>
         <button onClick={handleCancel}>Cancel</button>
       </div>
+      <div>
+        {data.getImages.map((imageUrl) => (
+          <Draggable handle=".drag-handle">
+            <ResizableBox width={200} height={200} minConstraints={[50, 50]} maxConstraints={[600, 600]}>
+              <div style={{ position: 'relative' }}>
+                <div className="drag-handle" style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '50px', cursor: 'move' }} />
+                <img src={imageUrl} style={{ width: '100%', height: '100%' }} />
+              </div>
+            </ResizableBox>
+          </Draggable>
+        ))}
+      </div>
+
     </main>
   );
 };
