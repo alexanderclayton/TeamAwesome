@@ -1,33 +1,21 @@
 :root {
-<<<<<<< HEAD
-    --first-color: #EAF6FF;
-    --second-color: #232528;
-    --third-color: #2A2A72;
-    --fourth-color: #009FFD;
-    --fifth-color: #7994a0;
-=======
   --first-color: #EAF6FF;
   --second-color: #232528;
   --third-color: #2A2A72;
   --fourth-color: #009FFD;
   --fifth-color: #FFA400;
->>>>>>> 53f81c5f1c390546856c683576ba808b680bbbd7
 }
 
 html{
     background-color: #009FFD;
 }
-<<<<<<< HEAD
-
 #main-page {
     padding: 3ch;
     background-color: #009FFD;
     height: 100%;
     width: 100%;
-=======
 div {
   color: var(--second-color);
->>>>>>> 53f81c5f1c390546856c683576ba808b680bbbd7
 }
 
 h2 {
@@ -41,7 +29,6 @@ h2 {
 }
 
 p {
-<<<<<<< HEAD
     color: var(--second-color);
     border-style: solid;
     border-color: var(--third-color);
@@ -61,102 +48,3 @@ p {
     #profile {
         background-color: var(--fifth-color);
     }
-=======
-  color: var(--second-color);
-  border-style: solid;
-  border-color: var(--third-color);
-  border-radius: 0.5ch;
-  height: max-content;
-  width: max-content;
-}
-
-.image-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.resizable-box {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: 999;
-}
-
-.react-resizable {
-  position: relative;
-}
-
-.react-resizable-handle {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-repeat: no-repeat;
-  background-origin: content-box;
-  box-sizing: border-box;
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2IDYiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiNmZmZmZmYwMCIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iNnB4Ij48ZyBvcGFjaXR5PSIwLjMwMiI+PHBhdGggZD0iTSA2IDYgTCAwIDYgTCAwIDQuMiBMIDQgNC4yIEwgNC4yIDQuMiBMIDQuMiAwIEwgNiAwIEwgNiA2IEwgNiA2IFoiIGZpbGw9IiMwMDAwMDAiLz48L2c+PC9zdmc+');
-  background-position: bottom right;
-  padding: 0 3px 3px 0;
-}
-
-.react-resizable-handle-sw {
-  bottom: 0;
-  left: 0;
-  cursor: sw-resize;
-  transform: rotate(90deg);
-}
-
-.react-resizable-handle-se {
-  bottom: 0;
-  right: 0;
-  cursor: se-resize;
-}
-
-.react-resizable-handle-nw {
-  top: 0;
-  left: 0;
-  cursor: nw-resize;
-  transform: rotate(180deg);
-}
-
-.react-resizable-handle-ne {
-  top: 0;
-  right: 0;
-  cursor: ne-resize;
-  transform: rotate(270deg);
-}
-
-.react-resizable-handle-w,
-.react-resizable-handle-e {
-  top: 50%;
-  margin-top: -10px;
-  cursor: ew-resize;
-}
-
-.react-resizable-handle-w {
-  left: 0;
-  transform: rotate(135deg);
-}
-
-.react-resizable-handle-e {
-  right: 0;
-  transform: rotate(315deg);
-}
-
-.react-resizable-handle-n,
-.react-resizable-handle-s {
-  left: 50%;
-  margin-left: -10px;
-  cursor: ns-resize;
-}
-
-.react-resizable-handle-n {
-  top: 0;
-  transform: rotate(225deg);
-}
-
-.react-resizable-handle-s {
-  bottom: 0;
-  transform: rotate(45deg);
->>>>>>> 53f81c5f1c390546856c683576ba808b680bbbd7
-}
