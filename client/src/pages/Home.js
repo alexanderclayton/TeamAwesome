@@ -62,9 +62,8 @@ const Home = () => {
         />
       </div>
       <div id='profile' style={{ display: isEditing ? 'none' : 'block' }}>
-        {imagesData.getImages.map((imageUrl, index) => (
+        {imagesData.getImages.map((imageUrl) => (
           <ImageArray
-            key={index}
             imageUrl={imageUrl}
           />
         ))}
