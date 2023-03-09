@@ -14,7 +14,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import PhotoAdd from "./pages/PhotoAdd";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 import AvatarAdd from "./components/UploadAvatar/UploadAvatar";
 
 const httpLink = createHttpLink({
