@@ -13,6 +13,7 @@ function Navbar() {
   const handleLoginLogoutClick = () => {
     if (Auth.loggedIn()) {
       logout();
+      window.location.href = '/login';
     } else {
       // Redirect to the login page
       window.location.href = '/login';

@@ -38,7 +38,7 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, { name, email, password, avatar}) => {
+    addUser: async (parent, { name, email, password, avatar }) => {
       if (!avatar) {
         avatar = ''
       }

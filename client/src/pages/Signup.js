@@ -8,7 +8,7 @@ import { Form, Input, Button, Checkbox } from "antd";
 const Signup = () => {
   const [form] = Form.useForm();
   const [addProfile, { error, data }] = useMutation(ADD_USER);
-
+  
   // submit form
   const handleFormSubmit = async (values) => {
     console.log(values);
@@ -34,7 +34,7 @@ const Signup = () => {
             {data ? (
               <p>
                 Success! You may now head{" "}
-                <Link to="/Home">back to the homepage.</Link>
+                <Link to="/login">back to the login page.</Link>
               </p>
             ) : (
               <Form
