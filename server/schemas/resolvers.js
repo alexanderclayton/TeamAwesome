@@ -19,6 +19,14 @@ const resolvers = {
 
       return User.findOne({ _id: userId });
     },
+
+    getImages: async (parent, args, context) => {
+      if (!context.user) {
+        throw new AuthenticationError("You need to be logged in!");
+      }
+      const user = await User.findById(context.user._id);
+      return user.images;
+    }
   },
 
   Mutation: {
@@ -52,11 +60,12 @@ const resolvers = {
     },
     addImage: async (parent, { downloadURL }, context) => {
       if (context && context.user) {
-        return User.findOneAndUpdate(
-          { _id: context.user._id },
+        const updatedUser = await User.findByIdAndUpdate(
+          context.user._id,
           { $push: { images: downloadURL } },
           { new: true }
         );
+        return updatedUser;
       }
       throw new AuthenticationError("You need to be logged in!");
     }

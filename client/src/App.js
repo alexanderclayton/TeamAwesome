@@ -45,6 +45,7 @@ function App() {
           <Header />
           <div className="container">
             <Routes>
+<<<<<<< HEAD
               <Route path="/" element={<Login />} />
               <Route path= "/Home" element={<Home />} />
               <Route path="/login" element={<Login />} />

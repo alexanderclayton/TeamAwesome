@@ -14,7 +14,7 @@
     font-size: 5ch;
     height:max-content;
     width: max-content;
-    color: var(--third-color);
+    color: var(--second-color);
     text-shadow: 2px 5px var(--fifth-color);
     padding-left: 2ch;
 }
@@ -38,12 +38,12 @@
         color: var(--fifth-color);
         text-shadow: var(--third-color) 2px 3.5px;
         text-align: center;
-        padding-left: 5ch ;
+        padding-left: 6.5ch ;
     }
 
     #login {
         border-style: solid;
         border-color: var(--fourth-color);
-        margin-left: 5ch;
+        margin-left: 9ch;
     }
   } 
