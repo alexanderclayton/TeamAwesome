@@ -1,12 +1,13 @@
 import { Avatar } from 'antd';
 import { useState } from 'react';
+import html2canvas from 'html2canvas';
+import { saveAs } from 'file-saver';
 
 const Home = () => {
   const [imageURL, setImageURL] = useState('');
   const [name, setName] = useState('John Doe');
   const [username, setUsername] = useState('johndoe');
   const [bio, setBio] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
-
   const [isEditing, setIsEditing] = useState(false);
 
   const handleImageUpload = (event) => {
@@ -27,14 +28,23 @@ const Home = () => {
     // Reset the name, username, and bio to the original values.
   };
 
+  const handleScreenshot = () => {
+    html2canvas(document.querySelector('#profile')).then((canvas) => {
+      canvas.toBlob((blob) => {
+        saveAs(blob, 'screenshot.png')
+      });
+    });
+  };
+
   return (
-    <main>
+    <main id = 'profile'>
       <div style={{ display: isEditing ? 'none' : 'block' }}>
         <Avatar size={104} src={imageURL} />
         <h2>{name}</h2>
         <p>@{username}</p>
         <p>{bio}</p>
         <button onClick={() => setIsEditing(true)}>Edit Profile</button>
+        <button onClick={handleScreenshot}>Save Screenshot</button>
       </div>
       <div style={{ display: isEditing ? 'block' : 'none' }}>
         <Avatar size={104} src={imageURL} />
