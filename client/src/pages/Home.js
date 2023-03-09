@@ -26,10 +26,11 @@ const Home = () => {
   const handleScreenshot = () => {
     html2canvas(document.querySelector('#profile')).then((canvas) => {
       canvas.toBlob((blob) => {
-        saveAs(blob, 'screenshot.png')
+        window.print(); 
       });
     });
   };
+  
 
   const { loading: imagesLoading, error: imagesError, data: imagesData } = useQuery(GET_IMAGES);
   const { loading: avatarLoading, error: avatarError, data: avatarData } = useQuery(GET_AVATAR);

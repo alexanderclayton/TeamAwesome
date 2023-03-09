@@ -9,7 +9,7 @@ const UserProfile = ({ name, username, bio, avatarUrl, setIsEditing, handleScree
       <p>@{username}</p>
       <p>{bio}</p>
       <button onClick={() => setIsEditing(true)}>Edit Profile</button>
-      <button onClick={handleScreenshot}>Save Screenshot</button>
+      <button onClick={handleScreenshot}>Print Collagio</button>
     </>
   );
 };
