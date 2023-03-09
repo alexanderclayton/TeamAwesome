@@ -3,18 +3,18 @@
     --second-color: #232528;
     --third-color: #2A2A72;
     --fourth-color: #009FFD;
-    --fifth-color: #FFA400;
+    --fifth-color: #7994a0;
 }
 
-body{
+/* body {
     background-color: #009FFD;
-}
+} */
 
 #title {
     font-size: 5ch;
     height:max-content;
     width: max-content;
-    color: var(--first-color);
+    color: var(--second-color);
     text-shadow: 2px 5px var(--fifth-color);
     padding-left: 2ch;
 }
@@ -32,23 +32,18 @@ body{
     margin-left: 2ch;
 }
 
-@media screen and (max-width: 480px) {
-    body {
-      background-color: var(--third-color);
-    }
-
+ @media screen and (max-width: 480px) {
+  
     #title {
         color: var(--fifth-color);
-        text-shadow: var(--first-color) 2px 3.5px;
+        text-shadow: var(--third-color) 2px 3.5px;
         text-align: center;
-        padding-left: 5ch ;
+        padding-left: 6.5ch ;
     }
 
     #login {
         border-style: solid;
         border-color: var(--fourth-color);
-        margin-left: 5ch;
+        margin-left: 9ch;
     }
-
-
-  }
+  } 

@@ -9,3 +9,9 @@
   bottom: 0;
   width: 100%;
 };
+
+@media screen and (max-width: 480px) {
+  .footer {
+      margin-top: 0px;
+  }
+}
