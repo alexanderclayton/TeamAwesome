@@ -6,6 +6,9 @@
     --fifth-color: #FFA400;
 }
 
+body{
+    
+}
 div {
 color: var(--second-color);
 }
