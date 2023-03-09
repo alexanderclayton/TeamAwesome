@@ -3,6 +3,7 @@ import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import { Button, Checkbox, Form, Input } from 'antd';
 import Auth from "../utils/auth";
+import '../pages/Login.css';
 
 const Login = (props) => {
   const [form] = Form.useForm();
@@ -30,7 +31,7 @@ const Login = (props) => {
     <main>
       <div>
         <div>
-          <h4>Login</h4>
+          <h4 id="title">Login</h4>
           <div>
             {data ? (
               <p>
@@ -38,7 +39,7 @@ const Login = (props) => {
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
-              <Form
+              <Form id="login"
                 form={form}
                 name="basic"
                 labelCol={{
