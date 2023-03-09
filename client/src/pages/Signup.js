@@ -23,6 +23,8 @@ const Signup = () => {
     }
   };
 
+
+
   return (
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
@@ -32,7 +34,7 @@ const Signup = () => {
             {data ? (
               <p>
                 Success! You may now head{" "}
-                <Link to="/">back to the homepage.</Link>
+                <Link to="/Home">back to the homepage.</Link>
               </p>
             ) : (
               <Form

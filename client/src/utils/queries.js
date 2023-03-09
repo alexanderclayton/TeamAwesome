@@ -25,3 +25,9 @@ export const GET_IMAGES = gql`
     getImages
   }
 `;
+
+export const GET_AVATAR = gql`
+  query GetAvatar {
+    getAvatar
+  }
+`

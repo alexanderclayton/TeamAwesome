@@ -61,6 +61,7 @@ p {
     height: 20px;
     bottom: 0;
     right: 0;
+    z-index: 1;
     cursor: se-resize;
     background-repeat: no-repeat;
     background-position: center center;

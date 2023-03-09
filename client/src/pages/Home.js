@@ -4,7 +4,7 @@ import './Home.css';
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 import { useQuery } from '@apollo/client';
-import { GET_IMAGES } from '../utils/queries';
+import { GET_IMAGES, GET_AVATAR } from '../utils/queries';
 import Draggable from 'react-draggable';
 import { Resizable, ResizableBox } from 'react-resizable';
 import '../pages/Home.css';
@@ -42,17 +42,18 @@ const Home = () => {
     });
   };
 
-  const { loading, error, data } = useQuery(GET_IMAGES);
+  const { loading: imagesLoading, error: imagesError, data: imagesData } = useQuery(GET_IMAGES);
+  const { loading: avatarLoading, error: avatarError, data: avatarData } = useQuery(GET_AVATAR)
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error</p>
+  if (imagesLoading || avatarLoading) return <p>Loading...</p>;
+  if (imagesError || avatarError) return <p>Error</p>
 
   return (
     <main>
       <div id="main-page" 
       // style={{ display: isEditing ? 'none' : 'block' }}
       >
-        <Avatar size={104} src={imageURL} />
+        <Avatar size={104} src={avatarData.getAvatar} />
         <h2>{name}</h2>
         <p>@{username}</p>
         <p>{bio}</p>
@@ -72,7 +73,7 @@ const Home = () => {
         <button onClick={handleCancel}>Cancel</button>
       </div>
       <div id='profile'>
-        {data.getImages.map((imageUrl) => (
+        {imagesData.getImages.map((imageUrl) => (
           <Draggable handle=".drag-handle">
             <ResizableBox width={200} height={200} minConstraints={[50, 50]} maxConstraints={[600, 600]}>
               <div style={{ position: 'relative' }}>
