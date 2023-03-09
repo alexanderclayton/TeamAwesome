@@ -66,7 +66,7 @@ const Home = () => {
         <button onClick={handleSave}>Save</button>
         <button onClick={handleCancel}>Cancel</button>
       </div>
-      <div id='profile'>
+      <div id='profile' style={{ display: isEditing ? 'none' : 'block' }} >
         {imagesData.getImages.map((imageUrl) => (
           <Draggable handle=".drag-handle">
             <ResizableBox width={200} height={200} minConstraints={[50, 50]} maxConstraints={[600, 600]}>
