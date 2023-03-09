@@ -48,17 +48,9 @@ const Home = () => {
 
   return (
     <main id = 'profile'>
-      <div style={{ display: isEditing ? 'none' : 'block' }}>
-        <Avatar size={104} src={imageURL} />
-        <h2>{name}</h2>
-        <p>@{username}</p>
-        <p>{bio}</p>
-        <button onClick={() => setIsEditing(true)}>Edit Profile</button>
-        <button onClick={handleScreenshot}>Save Screenshot</button>
-      </div>
       <div style={{ display: isEditing ? 'block' : 'none' }}>
         <Avatar size={104} src={imageURL} />
-        <input type="file" onChange={handleImageUpload} />
+        <input type="file" onChange={handleImageUpload} accept="image/*" />
         <label>Name:</label>
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
         <label>Username:</label>
