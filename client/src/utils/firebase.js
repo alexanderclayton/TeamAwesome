@@ -71,6 +71,7 @@ export function useFileUpload() {
           addImage({
             variables: {downloadURL},
           });
+          window.location.href = "/home"
         } catch (e) {
           console.error(e);
         }
@@ -139,6 +140,7 @@ export function useFileUploadAvatar() {
           addAvatar({
             variables: {downloadURL},
           });
+          window.location.href = "/home"
         } catch (e) {
           console.error(e);
         }
