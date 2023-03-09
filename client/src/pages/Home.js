@@ -40,14 +40,22 @@ const Home = () => {
       });
     });
   };
-  
+
   const { loading, error, data } = useQuery(GET_IMAGES);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>
 
   return (
-    <main id = 'profile'>
+    <main id='profile'>
+      <div style={{ display: isEditing ? 'none' : 'block' }}>
+        <Avatar size={104} src={imageURL} />
+        <h2>{name}</h2>
+        <p>@{username}</p>
+        <p>{bio}</p>
+        <button onClick={() => setIsEditing(true)}>Edit Profile</button>
+        <button onClick={handleScreenshot}>Save Screenshot</button>
+      </div>
       <div style={{ display: isEditing ? 'block' : 'none' }}>
         <Avatar size={104} src={imageURL} />
         <input type="file" onChange={handleImageUpload} accept="image/*" />
