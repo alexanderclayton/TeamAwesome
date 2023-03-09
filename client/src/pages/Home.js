@@ -7,6 +7,7 @@ import { useQuery } from '@apollo/client';
 import { GET_IMAGES, GET_AVATAR } from '../utils/queries';
 import Draggable from 'react-draggable';
 import { Resizable, ResizableBox } from 'react-resizable';
+import AvatarAdd from '../components/UploadAvatar/UploadAvatar'
 import '../pages/Home.css';
 
 const Home = () => {
@@ -15,14 +16,6 @@ const Home = () => {
   const [username, setUsername] = useState('johndoe');
   const [bio, setBio] = useState('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
   const [isEditing, setIsEditing] = useState(false);
-
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    // Upload the image file to a database or file storage service
-    // and get the URL of the uploaded file.
-    const url = 'https://example.com/images/' + file.name;
-    setImageURL(url);
-  };
 
   const handleSave = () => {
     setIsEditing(false);
@@ -46,13 +39,15 @@ const Home = () => {
   const { loading: avatarLoading, error: avatarError, data: avatarData } = useQuery(GET_AVATAR)
 
   if (imagesLoading || avatarLoading) return <p>Loading...</p>;
-  if (imagesError || avatarError) return <p>Error</p>
+  if (imagesError || avatarError) return imagesError.message || avatarError.message  //we need to style this
+
+  const handleAvatarChange = (imageURL) => {
+    setImageURL(imageURL);
+  }
 
   return (
     <main>
-      <div id="main-page" 
-      // style={{ display: isEditing ? 'none' : 'block' }}
-      >
+      <div id="main-page" style={{ display: isEditing ? 'none' : 'block' }} >
         <Avatar size={104} src={avatarData.getAvatar} />
         <h2>{name}</h2>
         <p>@{username}</p>
@@ -61,8 +56,7 @@ const Home = () => {
         <button onClick={handleScreenshot}>Save Screenshot</button>
       </div>
       <div style={{ display: isEditing ? 'block' : 'none' }}>
-        <Avatar size={104} src={imageURL} />
-        <input type="file" onChange={handleImageUpload} accept="image/*" />
+        <AvatarAdd onChange={handleAvatarChange} />
         <label>Name:</label>
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
         <label>Username:</label>

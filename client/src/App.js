@@ -15,7 +15,7 @@ import Login from "./pages/Login";
 import PhotoAdd from "./pages/PhotoAdd";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import AvatarAdd from "./pages/UploadAvatar";
+import AvatarAdd from "./components/UploadAvatar/UploadAvatar";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
