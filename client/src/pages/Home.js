@@ -47,7 +47,7 @@ const Home = () => {
   if (error) return <p>Error</p>
 
   return (
-    <main id='profile'>
+    <main>
       <div style={{ display: isEditing ? 'none' : 'block' }}>
         <Avatar size={104} src={imageURL} />
         <h2>{name}</h2>
@@ -68,7 +68,7 @@ const Home = () => {
         <button onClick={handleSave}>Save</button>
         <button onClick={handleCancel}>Cancel</button>
       </div>
-      <div>
+      <div id='profile'>
         {data.getImages.map((imageUrl) => (
           <Draggable handle=".drag-handle">
             <ResizableBox width={200} height={200} minConstraints={[50, 50]} maxConstraints={[600, 600]}>
@@ -81,7 +81,6 @@ const Home = () => {
         ))}
         <button onClick={handleScreenshot}>Save Screenshot</button>
       </div>
-
     </main>
   );
 };
