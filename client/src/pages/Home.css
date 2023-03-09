@@ -3,14 +3,18 @@
     --second-color: #232528;
     --third-color: #2A2A72;
     --fourth-color: #009FFD;
-    --fifth-color: #FFA400;
+    --fifth-color: #7994a0;
 }
 
-body{
-    
+html{
+    background-color: #009FFD;
 }
-div {
-color: var(--second-color);
+
+#main-page {
+    padding: 3ch;
+    background-color: #009FFD;
+    height: 100%;
+    width: 100%;
 }
 
 h2 {
@@ -30,4 +34,17 @@ p {
     border-radius: 0.5ch;
     height: max-content;
     width: max-content;
+}
+
+@media screen and (max-width: 480px) {
+    #main-page {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-wrap: break-word;
+    }
+
+    #profile {
+        background-color: var(--fifth-color);
+    }
 }
