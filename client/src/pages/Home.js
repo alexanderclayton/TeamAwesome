@@ -1,7 +1,7 @@
 import { Avatar } from 'antd';
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_IMAGES } from '../utils/queries';
+import { GET_IMAGES, QUERY_ME } from '../utils/queries';
 import Draggable from 'react-draggable';
 import '../pages/Home.css';
 
@@ -32,6 +32,7 @@ const Home = () => {
   };
 
   const { loading, error, data } = useQuery(GET_IMAGES);
+  const { data: userData } = useQuery(QUERY_ME);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>
@@ -40,9 +41,8 @@ const Home = () => {
     <main>
       <div style={{ display: isEditing ? 'none' : 'block' }}>
         <Avatar size={104} src={imageURL} />
-        <h2>{name}</h2>
-        <p>@{username}</p>
-        <p>{bio}</p>
+        <h2>{userData.username}</h2>
+        <p>{userData.email}</p>
         <button onClick={() => setIsEditing(true)}>Edit Profile</button>
       </div>
       <div style={{ display: isEditing ? 'block' : 'none' }}>
@@ -60,7 +60,7 @@ const Home = () => {
       <div>
         {data.getImages.map((imageUrl) => (
           <Draggable>
-            <img src={imageUrl} alt="user uploaded photo" />
+            <img src={imageUrl} alt='user upload' />
           </Draggable>
         ))}
       </div>

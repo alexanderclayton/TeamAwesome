@@ -26,6 +26,17 @@ const resolvers = {
       }
       const user = await User.findById(context.user._id);
       return user.images;
+    },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        const userData = await User.findOne({ _id: context.user._id })
+          .populate("name, email");
+          console.log(userData);
+
+        return userData;
+      }
+
+      throw new AuthenticationError("Not logged in");
     }
   },
 
