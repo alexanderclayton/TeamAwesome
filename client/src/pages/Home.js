@@ -4,8 +4,8 @@ import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 import { useQuery } from '@apollo/client';
 import { GET_IMAGES, GET_AVATAR } from '../utils/queries';
-import UserProfile from '../components/UserProfile/UserProfile'
-import EditProfile from '../components/EditProfile/EditProfile'
+import UserProfile from '../components/UserProfile/UserProfile';
+import EditProfile from '../components/EditProfile/EditProfile';
 import ImageArray from '../components/ImageArray/ImageArray';
 import '../pages/Home.css';
 
@@ -32,10 +32,10 @@ const Home = () => {
   };
 
   const { loading: imagesLoading, error: imagesError, data: imagesData } = useQuery(GET_IMAGES);
-  const { loading: avatarLoading, error: avatarError, data: avatarData } = useQuery(GET_AVATAR)
+  const { loading: avatarLoading, error: avatarError, data: avatarData } = useQuery(GET_AVATAR);
 
   if (imagesLoading || avatarLoading) return <p>Loading...</p>;
-  if (imagesError || avatarError) return imagesError.message || avatarError.message  //we need to style this
+  if (imagesError || avatarError) return imagesError.message || avatarError.message;  //we need to style this
 
   return (
     <main>
@@ -62,10 +62,12 @@ const Home = () => {
         />
       </div>
       <div id='profile' style={{ display: isEditing ? 'none' : 'block' }}>
-        {imagesData.getImages.map((imageUrl) => (
-          <ImageArray imageUrl={imageUrl} />
+        {imagesData.getImages.map((imageUrl, index) => (
+          <ImageArray
+            key={index}
+            imageUrl={imageUrl}
+          />
         ))}
-
       </div>
     </main>
   );

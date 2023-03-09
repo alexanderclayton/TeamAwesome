@@ -1,0 +1,34 @@
+import './footer.css';
+import { GithubFilled } from '@ant-design/icons';
+
+const Footer = () => {
+
+  const handleGithubClick = (url) => {
+    window.open(url, '_blank');
+  }
+
+  return (
+    <footer className='footer'>
+      Project completed by: 
+      <span className="github-icon" onClick={() => handleGithubClick('https://github.com/mac-codes')}>
+        <GithubFilled className="mckenna" style={{ color: '#6f42c1', fontSize: 24, cursor: 'pointer' }} />
+      </span> 
+      McKenna Lawson, 
+      <span className="github-icon" onClick={() => handleGithubClick('https://github.com/alexclaytonbootcamp')}>
+        <GithubFilled className="alex" style={{ color: '#6f42c1', fontSize: 24, cursor: 'pointer' }} />
+      </span> 
+      Alex Clayton, 
+      <span className="github-icon" onClick={() => handleGithubClick('https://github.com/svanmeter93')}>
+        <GithubFilled className="seth" style={{ color: '#6f42c1', fontSize: 24, cursor: 'pointer' }} />
+      </span> 
+      Seth VanMeter, 
+      and 
+      <span className="github-icon" onClick={() => handleGithubClick('https://github.com/DeadEye44')}>
+        <GithubFilled className="josh" style={{ color: '#6f42c1', fontSize: 24, cursor: 'pointer' }} />
+      </span> 
+      Josh Torrence
+    </footer>
+  );
+};
+
+export default Footer;
