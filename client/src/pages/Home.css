@@ -1,16 +1,33 @@
 :root {
+<<<<<<< HEAD
+    --first-color: #EAF6FF;
+    --second-color: #232528;
+    --third-color: #2A2A72;
+    --fourth-color: #009FFD;
+    --fifth-color: #7994a0;
+=======
   --first-color: #EAF6FF;
   --second-color: #232528;
   --third-color: #2A2A72;
   --fourth-color: #009FFD;
   --fifth-color: #FFA400;
+>>>>>>> 53f81c5f1c390546856c683576ba808b680bbbd7
 }
 
-body{
-    
+html{
+    background-color: #009FFD;
 }
+<<<<<<< HEAD
+
+#main-page {
+    padding: 3ch;
+    background-color: #009FFD;
+    height: 100%;
+    width: 100%;
+=======
 div {
   color: var(--second-color);
+>>>>>>> 53f81c5f1c390546856c683576ba808b680bbbd7
 }
 
 h2 {
@@ -24,6 +41,27 @@ h2 {
 }
 
 p {
+<<<<<<< HEAD
+    color: var(--second-color);
+    border-style: solid;
+    border-color: var(--third-color);
+    border-radius: 0.5ch;
+    height: max-content;
+    width: max-content;
+}
+
+@media screen and (max-width: 480px) {
+    #main-page {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-wrap: break-word;
+    }
+
+    #profile {
+        background-color: var(--fifth-color);
+    }
+=======
   color: var(--second-color);
   border-style: solid;
   border-color: var(--third-color);
@@ -120,4 +158,5 @@ p {
 .react-resizable-handle-s {
   bottom: 0;
   transform: rotate(45deg);
+>>>>>>> 53f81c5f1c390546856c683576ba808b680bbbd7
 }

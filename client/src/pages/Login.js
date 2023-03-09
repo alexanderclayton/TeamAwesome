@@ -3,7 +3,7 @@ import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import { Button, Checkbox, Form, Input } from 'antd';
 import Auth from "../utils/auth";
-import '../pages/Login.css';
+import './Login.css';
 
 const Login = (props) => {
   const [form] = Form.useForm();

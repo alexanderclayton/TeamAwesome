@@ -1,5 +1,8 @@
 import { Avatar } from 'antd';
 import { useState } from 'react';
+<<<<<<< HEAD
+import './Home.css';
+=======
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 import { useQuery } from '@apollo/client';
@@ -8,6 +11,7 @@ import Draggable from 'react-draggable';
 import { Resizable, ResizableBox } from 'react-resizable';
 import '../pages/Home.css';
 
+>>>>>>> 53f81c5f1c390546856c683576ba808b680bbbd7
 const Home = () => {
   const [imageURL, setImageURL] = useState('');
   const [name, setName] = useState('John Doe');
@@ -48,7 +52,9 @@ const Home = () => {
 
   return (
     <main>
-      <div style={{ display: isEditing ? 'none' : 'block' }}>
+      <div id="main-page" 
+      // style={{ display: isEditing ? 'none' : 'block' }}
+      >
         <Avatar size={104} src={imageURL} />
         <h2>{name}</h2>
         <p>@{username}</p>
