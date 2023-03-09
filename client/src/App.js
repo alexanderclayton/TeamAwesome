@@ -15,6 +15,7 @@ import Login from "./pages/Login";
 import PhotoAdd from "./pages/PhotoAdd";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import AvatarAdd from "./pages/UploadAvatar";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -50,6 +51,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/PhotoAdd" element={<PhotoAdd />} />
+              <Route path="/AvatarAdd" element={<AvatarAdd />} />
             </Routes>
           </div>
           <Footer />

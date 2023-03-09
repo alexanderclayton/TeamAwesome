@@ -26,12 +26,23 @@ const resolvers = {
       }
       const user = await User.findById(context.user._id);
       return user.images;
+    },
+
+    getAvatar: async (parent, args, context) => {
+      if (!context.user) {
+        throw new AuthenticationError("You need to be logged in!");
+      }
+      const user = await User.findById(context.user._id);
+      return user.avatar;
     }
   },
 
   Mutation: {
-    addUser: async (parent, { name, email, password }) => {
-      const user = await User.create({ name, email, password });
+    addUser: async (parent, { name, email, password, avatar}) => {
+      if (!avatar) {
+        avatar = ''
+      }
+      const user = await User.create({ name, email, password, avatar });
       const token = signToken(user);
 
       return { token, user };
@@ -63,6 +74,17 @@ const resolvers = {
         const updatedUser = await User.findByIdAndUpdate(
           context.user._id,
           { $push: { images: downloadURL } },
+          { new: true }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    addAvatar: async (parent, { downloadURL }, context) => {
+      if (context && context.user) {
+        const updatedUser = await User.findByIdAndUpdate(
+          context.user._id,
+          { avatar: downloadURL },
           { new: true }
         );
         return updatedUser;

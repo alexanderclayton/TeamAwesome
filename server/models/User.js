@@ -18,6 +18,9 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  avatar: {
+    type: String,
+  },
   images:[String]
 });
 
@@ -37,5 +40,7 @@ userSchema.methods.isCorrectPassword = async function (password) {
 };
 
 const User = model("User", userSchema);
+
+
 
 module.exports = User;
