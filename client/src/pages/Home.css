@@ -39,6 +39,10 @@ p {
     width: max-content;
 }
 
+#profile {
+  position: relative
+}
+
 @media screen and (max-width: 480px) {
     #main-page {
         display: flex;
