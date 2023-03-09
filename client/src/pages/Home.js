@@ -54,7 +54,7 @@ const Home = () => {
         <p>@{username}</p>
         <p>{bio}</p>
         <button onClick={() => setIsEditing(true)}>Edit Profile</button>
-        
+        <button onClick={handleScreenshot}>Save Screenshot</button>
       </div>
       <div style={{ display: isEditing ? 'block' : 'none' }}>
         <Avatar size={104} src={imageURL} />
@@ -79,7 +79,7 @@ const Home = () => {
             </ResizableBox>
           </Draggable>
         ))}
-        <button onClick={handleScreenshot}>Save Screenshot</button>
+        
       </div>
     </main>
   );
