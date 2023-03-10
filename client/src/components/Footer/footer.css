@@ -10,10 +10,10 @@
   width: 100%;
   display: flex;
   align-items: center;
+
 };
 
 .github-icon {
-  cursor: pointer;
 }
 
 @media screen and (max-width: 480px) {
