@@ -21,7 +21,7 @@ const Footer = () => {
       Seth VanMeter
       <span className="github-icon" onClick={() => handleGithubClick('https://github.com/svanmeter93')}>
         <GithubFilled className="seth" style={{ color: '#6f42c1', fontSize: 24, cursor: 'pointer' }} />
-      </span> 
+      </span>
       Josh Torrence
       <span className="github-icon" onClick={() => handleGithubClick('https://github.com/DeadEye44')}>
         <GithubFilled className="josh" style={{ color: '#6f42c1', fontSize: 24, cursor: 'pointer' }} />
