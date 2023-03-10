@@ -24,11 +24,13 @@ const Home = () => {
   };
 
   const handleScreenshot = () => {
-    html2canvas(document.querySelector('#profile')).then((canvas) => {
+    const profile = document.getElementById('profile');
+    html2canvas(profile).then((canvas) => {
       canvas.toBlob((blob) => {
-        window.print(); 
+        window.print();
       });
     });
+    
   };
   
 
