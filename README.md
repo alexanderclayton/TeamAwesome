@@ -32,3 +32,7 @@ McKenna Lawson
 Josh Torrence
 
 Seth Van Meter
+
+## Screenshot of deployed application
+
+![Screenshot](./assets/README-screenshot.png)
