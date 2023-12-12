@@ -1,7 +1,7 @@
 import React, {useState } from 'react'
 import Auth from "../../utils/auth";
 import '../Navbar/navbar.css';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   const [isDropdownActive, setIsDropdownActive] = useState(false);

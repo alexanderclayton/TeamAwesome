@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import './Home.css';
 import html2canvas from 'html2canvas';
-import { saveAs } from 'file-saver';
 import { useQuery } from '@apollo/client';
 import { GET_IMAGES, GET_AVATAR } from '../utils/queries';
 import UserProfile from '../components/UserProfile/UserProfile';
